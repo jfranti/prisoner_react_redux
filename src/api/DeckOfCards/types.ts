@@ -1,6 +1,39 @@
 /**
  *
  * @export
+ * @interface Card
+ */
+export interface Card {
+  /**
+   *
+   * @type {string}
+   * @memberof Card
+   * "https://www.deckofcardsapi.com/static/img/KH.png"
+   */
+  image: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Card
+   */
+  value: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Card
+   */
+  suit: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Card
+   */
+  code: string;
+}
+
+/**
+ *
+ * @export
  * @interface QueryDrawCardRequest
  */
 export interface QueryDrawCardRequest {
@@ -62,6 +95,58 @@ export interface ShuffleDeckResponse {
    *
    * @type {number}
    * @memberof ShuffleDeckResponse
+   */
+  remaining: number;
+}
+
+/**
+ *
+ * @export
+ * @interface DrawCardRequest
+ */
+export interface DrawCardRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof DrawCardRequest
+   */
+  deck_id: string;
+  /**
+   *
+   * @type {number}
+   * @memberof DrawCardRequest
+   */
+  count: number;
+}
+
+/**
+   * 
+  @export
+  @interface DrawCardResponse
+   */
+export interface DrawCardResponse {
+  /**
+   *
+   * @type {boolean}
+   * @memberof DrawCardResponse
+   */
+  success: boolean;
+  /**
+   *
+   * @type {Card[]}
+   * @memberof DrawCardResponse
+   */
+  cards: Card[];
+  /**
+   *
+   * @type {string}
+   * @memberof DrawCardResponse
+   */
+  deck_id: string;
+  /**
+   *
+   * @type {number}
+   * @memberof DrawCardResponse
    */
   remaining: number;
 }

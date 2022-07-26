@@ -4,6 +4,8 @@ import {
   //   QueryDrawCardRequest,
   ShuffleDeckRequest,
   ShuffleDeckResponse,
+  DrawCardRequest,
+  DrawCardResponse,
 } from "./types";
 
 const shuffleDeck = async (
@@ -30,6 +32,20 @@ const shuffleDeck = async (
   return response;
 };
 
+const drawCards = async (
+  params: DrawCardRequest
+): Promise<DrawCardResponse> => {
+  const { deck_id, count } = params;
+  const endpoint = `https://deckofcardsapi.com/api/deck/${deck_id}/draw/count=${count}`;
+
+  let response;
+
+  response = await axios.get(endpoint, params);
+
+  return response;
+};
+
 export default {
   shuffleDeck,
+  drawCards
 };
